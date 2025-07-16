@@ -50,29 +50,27 @@ Este projeto serve como ponto de partida para qualquer aplicação Spring Boot q
 
 ## 📦 Instalação e uso
 
-### 1. Clone o projeto
+### 1. Clone o projeto:
 
 ```bash
 git clone https://github.com/filipe-oliv95/oauth2-google-github-login.git
 cd oauth2-google-github-login
 ```
 
-### 2. Construa a imagem Docker
-```bash
-docker build -t oauth2-google-github-login .
-```
-
-### 3. Execute o container
-```bash
-docker run -p 8080:8080 \
-  -e GOOGLE_CLIENT_ID=seu-client-id-google \
-  -e GOOGLE_CLIENT_SECRET=seu-secret-google \
-  -e GITHUB_CLIENT_ID=seu-client-id-github \
-  -e GITHUB_CLIENT_SECRET=seu-secret-github \
-  oauth2-google-github-login
+### 2. Crie um arquivo .env na raiz do projeto com suas credenciais:
+```dotenv
+GOOGLE_CLIENT_ID=seu-client-id-do-google
+GOOGLE_CLIENT_SECRET=sua-client-secret-do-google
+GITHUB_CLIENT_ID=seu-client-id-do-github
+GITHUB_CLIENT_SECRET=sua-client-secret-do-github
 ```
 > ❗ Se ainda **não tem essas chaves**, siga o guia:
 > [`docs/setting-up-providers.pt-BR.md`](docs/setting-up-providers.pt-BR.md)
+
+### 3. Inicie a aplicação com Docker Compose:
+```bash
+docker-compose up --build
+```
 
 ---
 

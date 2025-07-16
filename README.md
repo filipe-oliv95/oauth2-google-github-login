@@ -58,25 +58,23 @@ git clone https://github.com/filipe-oliv95/oauth2-google-github-login.git
 cd oauth2-google-github-login
 ```
 
-### 2. Build the Docker image:
+### 2. Create a .env file in the project root with your credentials:
 
-```bash
-docker build -t oauth2-google-github-login .
-```
-
-### 3. Run the container:
-
-```bash
-docker run -p 8080:8080 \
-  -e GOOGLE_CLIENT_ID=your-google-client-id \
-  -e GOOGLE_CLIENT_SECRET=your-google-client-secret \
-  -e GITHUB_CLIENT_ID=your-github-client-id \
-  -e GITHUB_CLIENT_SECRET=your-github-client-secret \
-  oauth2-google-github-login
+```dotenv
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+GITHUB_CLIENT_ID=your-github-client-id
+GITHUB_CLIENT_SECRET=your-github-client-secret
 ```
 
 > ❗ If you **don't have these credentials** yet, follow the guide:
 > [`docs/setting-up-providers.en.md`](docs/setting-up-providers.en.md)
+
+### 3. Start the application using Docker Compose:
+
+```bash
+docker-compose up --build
+```
 
 ### 4. Access the application:
 
